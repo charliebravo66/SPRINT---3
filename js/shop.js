@@ -64,7 +64,7 @@ var products = [
     }
 ]
 // Array with products (objects) added directly with push(). Products in this array are repeated.
-var cartList = [];
+var cartList = [1,2,3,4,5,6,7,8,9];
 /*array[0] = "1";
 array[1] = "2";
 array[2] = "3";
@@ -86,7 +86,11 @@ function buy(id) {
     alert("añade al carrito el producto" + id)
     for(let i=0;i<id;i++){
         console.log(id);
-        id = document.getElementById("count_product");
+       // id = document.getElementById("count_product");
+        document.getElementById("count_product").innerHTML = id;
+        console.log(products[id]);
+
+       // document.write ("El producto añadido es", id);
     }
 
 
