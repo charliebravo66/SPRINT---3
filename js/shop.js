@@ -101,6 +101,11 @@ function buy(id) {
 
 // Exercise 2
 function cleanCart() {
+    alert("limpiar cesta");
+    cart.pop();
+
+    console.log(cart);
+
 
 }
 
