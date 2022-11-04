@@ -16,7 +16,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<!-- Core theme CSS (includes Bootstrap)-->
-<<<<<<< HEAD
 	<style>
 		
 	input:invalid {
@@ -30,17 +29,6 @@
 </head>
 
 <body onload="document.formulario_registro.fName.focus();">
-=======
-
-	<style>
-		input:focus() {
-  		background: rgb(159, 10, 10);
-}
-	</style>
-</head>
-
-<body onlad="document.formulario_registro.fname.focus();">
->>>>>>> 2217ea59ca2187a943b02c6ba72bfd9307a3b450
 	<!-- Navigation-->
 	<nav class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg" id="navbar-example2">
 		<div class="container d-flex">
@@ -99,27 +87,17 @@
 				<h3 class="my-3 bord shadow text-center"><i class="fas fa-stopwatch p-2"></i>Delivery on time</h3>
 			</div>
 		</div>
-<<<<<<< HEAD
 		<form class="form needs-validation" name="formulario_registro" action="enviado()" onsubmit="return validate()" method="post" >
-=======
-		<form class="form" name="formulario_registro" action="checkout.html" onsubmit="return validate()" method="post">
->>>>>>> 2217ea59ca2187a943b02c6ba72bfd9307a3b450
 			<div class="row bord p-5 shadow m-5">
 				<div class="col-sm-6">
 					<div class="mt-3">
 						<label for="fName" class="form-label">First Name:</label>
-<<<<<<< HEAD
 						<input id="fName" class="form-control ml-3 invalid" type="text" placeholder="First Name" pattern="^[A-Za-z]+$" minlength="3" tabindex=1 required/>
 						<div id="errorName" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
-=======
-						<input id="fName" class="form-control ml-3" type="text" placeholder="First Name" tabindex="1" required/>
-						<div id="errorName" class="invalid-feedback">This field is required and must have, at least, 3 characters
->>>>>>> 2217ea59ca2187a943b02c6ba72bfd9307a3b450
 						</div>
 					</div>
 					<div class="mt-3 ">
 						<label for="fEmail" class="form-label">Email:</label>
-<<<<<<< HEAD
 						<input id="fEmail" class="form-control ml-3 invalid" type="email" placeholder="Email" minlength="3" tabindex=3 required/>
 						<div id="errorEmail" class="valid-feedback">Este campo requiere de al menos 3 caracteres.</div>
 					</div>
@@ -127,34 +105,18 @@
 						<label for="fAddress" class="form-label">Address:</label>
 						<input id="fAddress" class="form-control invalid" type="text" placeholder="Address" minlength="3" tabindex=5 required/>
 						<div id="errorAddress" class="valid-feedback">Este campo requiere de al menos 3 caracteres.
-=======
-						<input id="fEmail" class="form-control ml-3" type="email" placeholder="Email" minlength="3" tabindex="3" required/>
-						<div id="errorEmail" class="invalid-feedback">This field is required and must contain an '@' and have, at
-							least, 3 characters</div>
-					</div>
-					<div class="mt-3 ">
-						<label for="fAddress" class="form-label">Address:</label>
-						<input id="fAddress" class="form-control" type="text" placeholder="Address" minlength="3" tabindex="5" required/>
-						<div id="errorAddress" class="invalid-feedback">This field is required and must have, at least, 3 characters
->>>>>>> 2217ea59ca2187a943b02c6ba72bfd9307a3b450
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="mt-3">
 						<label for="fLastN" class="form-label">Last Name:</label>
-<<<<<<< HEAD
 						<input id="fLastN" class="form-control invalid" type="text" placeholder="Last Name" pattern="^[A-Za-z]+$" minlength="3" tabindex=2 required/>
 						<div id="errorLastN" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
-=======
-						<input id="fLastN" class="form-control" type="text" placeholder="Last Name" minlength="3" tabindex="2" required/>
-						<div id="errorLastN" class="invalid-feedback">This field is required and must have, at least, 3 characters
->>>>>>> 2217ea59ca2187a943b02c6ba72bfd9307a3b450
 						</div>
 					</div>
 					<div class="mt-3">
 						<label for="fPassword" class="form-label">Password:</label>
-<<<<<<< HEAD
 						<input id="fPassword" class="form-control invalid" title="(4-8 characters)" type="password" tabindex=4 minlength="4"
 							maxlength="8" placeholder="Password" required/>
 						<div id="errorPassword" class="valid-feedback">Introduzca un password correcto</div>
@@ -163,16 +125,6 @@
 						<label for="fPhone" class="form-label">Phone Number:</label>
 						<input id="fPhone" class="form-control invalid" type="number" placeholder="Phone No." tabindex=6 required/>
 						<div id="errorPhone" class="valid-feedback">Número de teléfono inválido!! Debe tener solo números</div>
-=======
-						<input id="fPassword" class="form-control" title="(4-8 characters)" type="password" minlength="4"
-							maxlength="8" placeholder="Password" tabindex="4" required/>
-						<div id="errorPassword" class="invalid-feedback">Enter a correct password</div>
-					</div>
-					<div class="mt-3">
-						<label for="fPhone" class="form-label">Phone Number:</label>
-						<input id="fPhone" class="form-control" type="number" placeholder="Phone No." tabindex="6" required/>
-						<div id="errorPhone" class="invalid-feedback">Invalid phone number!! Must be 9 digits with no letters</div>
->>>>>>> 2217ea59ca2187a943b02c6ba72bfd9307a3b450
 					</div>
 				</div>
 				<div class="col-12 mt-4 final">

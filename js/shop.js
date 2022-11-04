@@ -65,15 +65,7 @@ var products = [
 ]
 // Array with products (objects) added directly with push(). Products in this array are repeated.
 var cartList = [];
-/*array[0] = "1";
-array[1] = "2";
-array[2] = "3";
-array[3] = "4";
-array[4] = "5";
-array[5] = "6";
-array[6] = "7";
-array[7] = "8";
-array[8] = "9";*/
+
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 var cart = [];
@@ -84,19 +76,37 @@ var total = 0;
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     alert("añade al carrito el producto" + id)
+
     // recorre toda la lista para saber qué ID ha clickado
-    for(let i=0;i<id;i++){
+
+
+    /*products.forEach(function(entry) {
+        alert(entry);
+    });*/
+
+    // Recorremos todo el array de productos y le pasamos el id a la cesta
+   
+    //for(let i=0;i<id;i++){
+    //let nombreProducto = "";
+    //nombreProducto = products.name[id];
+   
+        for(let i=0;i<products.length;i++){
         console.log(id);
-       // id = document.getElementById("count_product");
+        console.log(i);     
+        //alert(products[i]);
+
         document.getElementById("count_product").innerHTML = id;
+        document.getElementById("cart_list").innerHTML = id;
+        //document.getElementById("cart_list").innerHTML = nombreProducto;
+        //document.getElementById("nombreProducto").innerHTML = id;
         console.log(products[id]);
         cartList.push(id);
-        //var cartList =products.push(id);
+
         console.log(products);
 
         console.log(cartList);
         return;
-       // document.write ("El producto añadido es", id);
+
     }
 
 
@@ -108,9 +118,11 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
     alert("limpiar cesta");
-    cart = []
-
-    console.log(cart);
+    cartList.splice(0,cartList.length);
+    console.log(cartList);
+    cartList = [];
+    document.getElementById("cart_list").innerHTML = "";
+    document.getElementById("total_price").innerHTML = "";
 
 
 }
