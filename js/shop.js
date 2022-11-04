@@ -73,46 +73,66 @@ var cart = [];
 var total = 0;
 
 // Exercise 1
+
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
-    alert("añade al carrito el producto" + id)
+
 
     // recorre toda la lista para saber qué ID ha clickado
 
 
-    /*products.forEach(function(entry) {
-        alert(entry);
-    });*/
-
     // Recorremos todo el array de productos y le pasamos el id a la cesta
    
-    //for(let i=0;i<id;i++){
-    //let nombreProducto = "";
-    //nombreProducto = products.name[id];
-   
-        for(let i=0;i<products.length;i++){
-        console.log(id);
-        console.log(i);     
-        //alert(products[i]);
+   // con método for
+       /* for(let i=0;i<products.length;i++){
+            console.log(products[i]);  
+        } */
+        //console.log(id);
 
-        document.getElementById("count_product").innerHTML = id;
+    // con método foreach
+        /*products.forEach(function(producto,indice,products,price,name){
+            console.log(producto.name + '' + producto.price + '' + producto.type)
+            cartList.push(producto.name);
+            document.getElementById("cart_list").innerHTML = producto.name;
+            return products;
+        })*/
+
+    // con método map
+        /*const result = products.map(function(producto){
+            return producto.name;
+            console.log(result);    
+        })*/
+
+    //con método map y flecha
+        /*products.map(producto =>producto.name)
+        console.log(products.at(id));*/
+        document.getElementById("cart_list").innerHTML = "";
+        document.getElementById("total_price").innerHTML = "";
+
+         for(let i=0;i<products.length;i++){
+            console.log(products[i]);
+            document.getElementById("cart_list").innerHTML = id;
+            document.getElementById("count_product").innerHTML = id;
+            document.getElementById("total_price").innerHTML = precio;
+    
+        }
+      
+        var precio = products.price;
+        var prodNombre = products.name;
+        //cartList.push(products[id]);
+        document.getElementById("cart_list").innerHTML = prodNombre;
         document.getElementById("cart_list").innerHTML = id;
-        //document.getElementById("cart_list").innerHTML = nombreProducto;
-        //document.getElementById("nombreProducto").innerHTML = id;
-        console.log(products[id]);
-        cartList.push(id);
+        document.getElementById("total_price").innerHTML = precio;
+    
 
-        console.log(products);
 
-        console.log(cartList);
-        return;
 
     }
 
 
      // 2. Add found product to the cartList array
 
-}
+
 
 
 // Exercise 2
@@ -123,6 +143,7 @@ function cleanCart() {
     cartList = [];
     document.getElementById("cart_list").innerHTML = "";
     document.getElementById("total_price").innerHTML = "";
+    document.getElementById("count_product").innerHTML = "";
 
 
 }
