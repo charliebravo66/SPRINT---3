@@ -84,17 +84,8 @@ var total = 0;
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     alert("añade al carrito el producto" + id)
-<<<<<<< HEAD
     // recorre toda la lista para saber qué ID ha clickado
     for(let i=0;i<id;i++){
-=======
-    var indice = id
-    for(let i=0;i<products.length;i++){ 
-        var prod = products[i];
-        if(prod.id = id){
-            cartList.push(prod);
-        }
->>>>>>> 2217ea59ca2187a943b02c6ba72bfd9307a3b450
         console.log(id);
        // id = document.getElementById("count_product");
         document.getElementById("count_product").innerHTML = id;
