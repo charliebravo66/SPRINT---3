@@ -10,6 +10,22 @@ function validate() {
 	var fAddress = document.getElementById("fAddress");
 	var fPhone = document.getElementById("fPhone");
 
+	let validaTodo = document.forms["formulario_registro"].value;
+	if (validaTodo == "") {
+	  alert("Debes rellenar todos los campos del formulario");	  
+	  return false;
+	}
+
+	//let x = document.forms["myForm"]["fname"].value;
+	//if (fName.value == "") {
+	let valor = document.getElementById("fName").value;
+		if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {	
+	  alert("Debes rellenar el campo Nombre");
+	  fName.focus();
+	  //document.getElementById("fName").style.backgroundColor = "red";
+	  return false;
+	}
+	
 	// Get the error elements
 	var errorName = document.getElementById("errorName");
 	var errorLastN = document.getElementById("errorLastN"); 
@@ -50,6 +66,9 @@ function validate() {
 		document.formulario_registro.fEmail.focus();
 	}
 	if(fEmail.value == ""){
+		alert("Falta rellenar Email");
+		fEmail.focus();
+		document.getElementById("fName").style.backgroundColor = "red";
 		error++;
 	}
 
@@ -70,6 +89,14 @@ function validate() {
 	}else{
 		alert("OK");
 	}
+
+	if(fPhone.value == ""){
+		let valorTelefono = document.getElementById("campo").value;if( !(/^\d{10}$/.test(valor)) ) 
+		{ return false;}	
+		error++;
+	}
+
+
 
 }
 
