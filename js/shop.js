@@ -72,101 +72,157 @@ var cart = [];
 
 var total = 0;
 
+var subtotal = 0;
+
 // Exercise 1
 
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
+    // Hacemos un for para recorrer los productos
+    for(let i=0;i<products.length;i++){
 
-
-    // recorre toda la lista para saber qué ID ha clickado
-
-
-    // Recorremos todo el array de productos y le pasamos el id a la cesta
-   
-   // con método for
-       /* for(let i=0;i<products.length;i++){
-            console.log(products[i]);  
-        } */
-        //console.log(id);
-
-    // con método foreach
-        /*products.forEach(function(producto,indice,products,price,name){
-            console.log(producto.name + '' + producto.price + '' + producto.type)
-            cartList.push(producto.name);
-            document.getElementById("cart_list").innerHTML = producto.name;
-            return products;
-        })*/
-
-    // con método map
-        /*const result = products.map(function(producto){
-            return producto.name;
-            console.log(result);    
-        })*/
-
-    //con método map y flecha
-        /*products.map(producto =>producto.name)
-        console.log(products.at(id));*/
-        document.getElementById("cart_list").innerHTML = "";
-        document.getElementById("total_price").innerHTML = "";
-
-         for(let i=0;i<products.length;i++){
-            console.log(products[i]);
-            document.getElementById("cart_list").innerHTML = id;
-            document.getElementById("count_product").innerHTML = id;
-            document.getElementById("total_price").innerHTML = precio;
-    
-        }
-      
-        var precio = products.price;
-        var prodNombre = products.name;
-        //cartList.push(products[id]);
-        document.getElementById("cart_list").innerHTML = prodNombre;
-        document.getElementById("cart_list").innerHTML = id;
-        document.getElementById("total_price").innerHTML = precio;
-    
-
+        if(id == products[i].id){
+            //añadimos producto a la cartList    
+            cartList.push(products[i])
+            
+             //cartList.push(products[id]);
+            console.log(cartList);
+        }    
+    }
+    //llamada función que genera Carrito
+    generateCart();
+    //llamada función que calcula el total del Carrito
+    calculateTotal();
 
 
     }
-
-
-     // 2. Add found product to the cartList array
 
 
 
 
 // Exercise 2
 function cleanCart() {
-    alert("limpiar cesta");
-    cartList.splice(0,cartList.length);
-    console.log(cartList);
-    cartList = [];
-    document.getElementById("cart_list").innerHTML = "";
-    document.getElementById("total_price").innerHTML = "";
-    document.getElementById("count_product").innerHTML = "";
-
-
+    //alert("limpiar cesta");
+    //limpiar cesta
+    cart = [];
+    //función imprime cesta modal 
+    printCart();
+    //ponemos el contador de la cesta a 0
+    document.getElementById('count_product').innerHTML = 0;
+    //console.log(cart);
 }
 
 // Exercise 3
+
 function calculateTotal() {
-    // Calculate total price of the cart using the "cartList" array
+    // variable total a 0
+    total = 0; 
+    for(i=0;i<cart.length;i++){
+        if(isNaN(cart[i].subtotalWithDiscount)){
+            total += cart[i].subtotal;
+        }
+        else {
+            total += cart[i].subtotalWithDiscount;
+        }        
+    }
+    //redondeamos la cantidad total 
+    total = total.toFixed(2);
+
+    cart.total = total;
+
+    // precio total cesta
+    console.log("total = "+total);
+    // Calculate total price of the cart either using the "cartList" array
 }
+
 
 // Exercise 4
 function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
+    //llamamos función limpiar carrito antes de generar 
+    cleanCart();
+
+    //pasar del carlist al cart
+    for(i=0;i<cartList.length;i++){
+        let existe = false;        
+        for(j=0;j<cart.length; j++){
+            if(cartList[i].id==cart[j].id){
+                cart[j].quantity = cart[j].quantity + 1;
+                existe = true;
+                break;
+            }
+        }
+        // si es distinto de la cantidad
+        if(!existe){
+            cartList[i].quantity = 1;
+            cart.push(cartList[i])
+        }
+    }
+
+    //llamamos a la función promociones
+    applyPromotionsCart();
+    //llamamos a la función imprimir carrito
+    printCart();
+
+    console.log(cart);
+
 }
 
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
+    for (i = 0; i < cart.length; i++) {
+        if (cart[i].name == 'cooking oil' && cart[i].quantity >= 3)
+            //promoción aceite si compra más de 3 botellas             
+            cart[i].subtotalWithDiscount = cart[i].quantity * 10;             
+        else if (cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
+            //con más de 10 productos para hacer pastel
+            cart[i].subtotalWithDiscount = (cart[i].subtotal / 3) * 2; 
+        else {
+            delete cart[i].subtotalWithDiscount;            
+        }
+        cart[i].subtotal = cart[i].quantity * cart[i].price;
+    }
 }
+
+
 
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
+    // limpiamos pantalla carrito
+    //cleanCart()
+
+        //vaciamos los datos iniciales del carrito
+        document.getElementById('cart_list').innerHTML = "";
+        document.getElementById('totalPrecio').innerHTML = "";
+        //creamos variable lista vacía
+        let lista = "";
+
+        //hacemos un for para recorrer los productos del carrito de la compra
+        for (i = 0; i < cart.length; i++) {
+        
+        //variable con la creación dinámica de los datos del carrito (nombre, precio, cantidad, total...)
+            let p = "<tr>"
+                + "<th scope=\"row\">"+cart[i].name+"</th>"
+                + "<td align='right'>"+cart[i].price+"</td>"
+                + "<td align='center'>"+cart[i].quantity+"</td>"
+                + "<td align='right'>"+cart[i].subtotalWithDiscount+" "+cart[i].subtotal+"</td>"
+               // + "<td align='right'>"+cart[i].subtotal+"</td>"
+                + "</tr>";
+
+            lista = lista + p;
+        }
+
+        //document.getElementById('cart_list').innerHTML = total;
+
+
+        document.getElementById('cart_list').innerHTML = lista;
+        
+        document.getElementById('count_product').innerHTML = cartList.length;
+        
+    
 }
 
 
