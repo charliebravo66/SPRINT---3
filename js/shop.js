@@ -94,7 +94,6 @@ function buy(id) {
     //llamada función que calcula el total del Carrito
     calculateTotal();
 
-
     }
 
 
@@ -103,6 +102,7 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
     //alert("limpiar cesta");
+ 
     //limpiar cesta
     cart = [];
     //función imprime cesta modal 
@@ -110,6 +110,8 @@ function cleanCart() {
     //ponemos el contador de la cesta a 0
     document.getElementById('count_product').innerHTML = 0;
     //console.log(cart);
+   
+
 }
 
 // Exercise 3
@@ -141,7 +143,8 @@ function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
     //llamamos función limpiar carrito antes de generar 
-    cleanCart();
+
+     cleanCart();
 
     //pasar del carlist al cart
     for(i=0;i<cartList.length;i++){
@@ -192,7 +195,7 @@ function applyPromotionsCart() {
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
     // limpiamos pantalla carrito
-    //cleanCart()
+   //cleanCart()
 
         //vaciamos los datos iniciales del carrito
         document.getElementById('cart_list').innerHTML = "";
@@ -206,17 +209,36 @@ function printCart() {
         //variable con la creación dinámica de los datos del carrito (nombre, precio, cantidad, total...)
             let p = "<tr>"
                 + "<th scope=\"row\">"+cart[i].name+"</th>"
-                + "<td align='right'>"+cart[i].price+"</td>"
+                + "<td align='right'>"+cart[i].price+" &euro;</td>"
                 + "<td align='center'>"+cart[i].quantity+"</td>"
-                + "<td align='right'>"+cart[i].subtotalWithDiscount+" "+cart[i].subtotal+"</td>"
-               // + "<td align='right'>"+cart[i].subtotal+"</td>"
+                //if((cart[i].subtotalWithDiscount)){
+                + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"           
+                + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
+                
+                if(isNaN(cart[i].subtotalWithDiscount)){
+                    total += cart[i].subtotal;
+                    + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"   
+                }
+                else {
+                    total += cart[i].subtotalWithDiscount;
+                    + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
+                }        
+          
                 + "</tr>";
-
+                
             lista = lista + p;
         }
+        
+        let precioFinal = "";
+        
 
-        //document.getElementById('cart_list').innerHTML = total;
-
+            let t = "<tr>"
+            + "<th scope=\"row\">"+cart.total+" &euro;</th>"
+            + "</tr>";
+            
+            precioFinal = precioFinal + t;
+        
+        document.getElementById('totalPrecio').innerHTML = precioFinal;
 
         document.getElementById('cart_list').innerHTML = lista;
         
@@ -225,6 +247,18 @@ function printCart() {
     
 }
 
+
+function limpiarCacheModal(){
+    alert("limpia cache");
+    jQuery(document).ready(function(){
+
+	jQuery('#cartModal').on('hidden.bs.modal', function (e) {
+	    jQuery(this).removeData('bs.modal');
+	    jQuery(this).find('.modal-content').empty();
+	})
+
+    })
+}
 
 // ** Nivell II **
 
