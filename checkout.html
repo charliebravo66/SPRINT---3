@@ -87,51 +87,88 @@
 				<h3 class="my-3 bord shadow text-center"><i class="fas fa-stopwatch p-2"></i>Delivery on time</h3>
 			</div>
 		</div>
-		<form class="form needs-validation" name="formulario_registro" action="enviado()" onsubmit="return validate()" method="post" >
+		<form class="form was-validated"  name="formulario_registro"  onsubmit="return validar()">
+		<!--form class="form needs-validation" novalidate name="formulario_registro"-->	
+		<!--form class="form needs-validation"  name="formulario_registro"  onsubmit="return validar()" novalidate-->	
 			<div class="row bord p-5 shadow m-5">
 				<div class="col-sm-6">
 					<div class="mt-3">
 						<label for="fName" class="form-label">First Name:</label>
-						<input id="fName" class="form-control ml-3 invalid" type="text" placeholder="First Name" pattern="^[A-Za-z]+$" minlength="3" tabindex=1 required/>
-						<div id="errorName" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
+						<input id="fName" class="form-control ml-3" type="text" placeholder="First Name" tabindex=1 pattern="^[A-Za-z]+$" minlength="3" required/>
+						<!--div id="errorName" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
+						</div-->
+						<div class="valid-feedback">
+							Perfecto
+						</div>
+						<div class="invalid-feedback">	
+							Este campo requiere de al menos 3 caracteres y solo letras.	
 						</div>
 					</div>
 					<div class="mt-3 ">
 						<label for="fEmail" class="form-label">Email:</label>
-						<input id="fEmail" class="form-control ml-3 invalid" type="email" placeholder="Email" minlength="3" tabindex=3 required/>
-						<div id="errorEmail" class="valid-feedback">Este campo requiere de al menos 3 caracteres.</div>
+						<input id="fEmail" class="form-control ml-3 invalid" type="email" placeholder="Email" tabindex=3 required/>
+						<div class="valid-feedback">
+							Perfecto
+						</div>
+						<div class="invalid-feedback">	
+							El formato del correo electrónico no es correcto	
+						</div>
 					</div>
 					<div class="mt-3 ">
 						<label for="fAddress" class="form-label">Address:</label>
 						<input id="fAddress" class="form-control invalid" type="text" placeholder="Address" minlength="3" tabindex=5 required/>
-						<div id="errorAddress" class="valid-feedback">Este campo requiere de al menos 3 caracteres.
+						<!--div id="errorAddress" class="valid-feedback">Este campo requiere de al menos 3 caracteres.
+						</div-->
+						<div class="valid-feedback">
+							Perfecto
+						</div>
+						<div class="invalid-feedback">	
+							Este campo requiere de al menos 3 caracteres.	
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="mt-3">
 						<label for="fLastN" class="form-label">Last Name:</label>
-						<input id="fLastN" class="form-control invalid" type="text" placeholder="Last Name" pattern="^[A-Za-z]+$" minlength="3" tabindex=2 required/>
-						<div id="errorLastN" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
+						<input id="fLastN" class="form-control" type="text" placeholder="Last Name" pattern="^[A-Za-z]+$" minlength="3" tabindex=2 required/>
+						<!--div id="errorLastN" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
+						</div-->
+						<div class="valid-feedback">
+							Perfecto
+						</div>
+						<div class="invalid-feedback">	
+							Este campo requiere de al menos 3 caracteres y solo letras.	
 						</div>
 					</div>
 					<div class="mt-3">
 						<label for="fPassword" class="form-label">Password:</label>
 						<input id="fPassword" class="form-control invalid" title="(4-8 characters)" type="password" tabindex=4 minlength="4"
 							maxlength="8" placeholder="Password" required/>
-						<div id="errorPassword" class="valid-feedback">Introduzca un password correcto</div>
+						<!--div id="errorPassword" class="valid-feedback">Introduzca un password correcto</div-->
+						<div class="valid-feedback">
+							Perfecto
+						</div>
+						<div class="invalid-feedback">	
+							Introduzca un password con números y letras.	
+						</div>
 					</div>
 					<div class="mt-3">
 						<label for="fPhone" class="form-label">Phone Number:</label>
-						<input id="fPhone" class="form-control invalid" type="number" placeholder="Phone No." tabindex=6 required/>
-						<div id="errorPhone" class="valid-feedback">Número de teléfono inválido!! Debe tener solo números</div>
+						<input id="fPhone" class="form-control invalid" type="number" placeholder="Phone No." minlength="9" tabindex=6 required/>
+						<!--div id="errorPhone" class="valid-feedback">Número de teléfono inválido!! Debe tener solo números</div-->
+						<div class="valid-feedback">
+							Perfecto
+						</div>
+						<div class="invalid-feedback">	
+							Número de teléfono inválido!! Debe tener solo números	
+						</div>
 					</div>
 				</div>
 				<div class="col-12 mt-4 final">
-					<button type="submit" id="btn" class="p-2 px-4 btn btn-primary shadow-lg" onclick="validate()">
+					<button type="submit" id="btn" class="p-2 px-4 btn btn-primary shadow-lg" onclick="validar()">
 						<i class="fas fa-cart-arrow-down p-2"></i>Registrar
 					</button>
-					<button type="reset" id="btn" class="p-2 px-4 btn btn-danger shadow-lg" onclick="validate()">
+					<button type="reset" id="btn" class="p-2 px-4 btn btn-danger shadow-lg" onclick="limpiarForm()">
 						<i class="fas fa-cart-arrow-down p-2"></i>Limpiar
 					</button>
 				</div>
