@@ -95,10 +95,10 @@
 					<div class="mt-3">
 						<label for="fName" class="form-label">First Name:</label>
 						<input id="fName" class="form-control ml-3" type="text" placeholder="First Name" tabindex=1 pattern="^[A-Za-z]+$" minlength="3" required/>
-						<!--div id="errorName" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
+						<!--div id="errorName" class="invalid-feedback" hidden>Este campo requiere de al menos 3 caracteres y solo letras.
 						</div-->
 						<div class="valid-feedback">
-							Perfecto
+							
 						</div>
 						<div class="invalid-feedback">	
 							Este campo requiere de al menos 3 caracteres y solo letras.	
@@ -108,7 +108,7 @@
 						<label for="fEmail" class="form-label">Email:</label>
 						<input id="fEmail" class="form-control ml-3 invalid" type="email" placeholder="Email" tabindex=3 required/>
 						<div class="valid-feedback">
-							Perfecto
+							
 						</div>
 						<div class="invalid-feedback">	
 							El formato del correo electrónico no es correcto	
@@ -120,7 +120,7 @@
 						<!--div id="errorAddress" class="valid-feedback">Este campo requiere de al menos 3 caracteres.
 						</div-->
 						<div class="valid-feedback">
-							Perfecto
+						
 						</div>
 						<div class="invalid-feedback">	
 							Este campo requiere de al menos 3 caracteres.	
@@ -134,7 +134,7 @@
 						<!--div id="errorLastN" class="valid-feedback">Este campo requiere de al menos 3 caracteres y solo letras.
 						</div-->
 						<div class="valid-feedback">
-							Perfecto
+						
 						</div>
 						<div class="invalid-feedback">	
 							Este campo requiere de al menos 3 caracteres y solo letras.	
@@ -142,11 +142,11 @@
 					</div>
 					<div class="mt-3">
 						<label for="fPassword" class="form-label">Password:</label>
-						<input id="fPassword" class="form-control invalid" title="(4-8 characters)" type="password" tabindex=4 minlength="4"
+						<input id="fPassword" class="form-control invalid" title="(4-8 characters)" type="password" tabindex=4 minlength="3"
 							maxlength="8" placeholder="Password" required/>
 						<!--div id="errorPassword" class="valid-feedback">Introduzca un password correcto</div-->
 						<div class="valid-feedback">
-							Perfecto
+							
 						</div>
 						<div class="invalid-feedback">	
 							Introduzca un password con números y letras.	
@@ -154,13 +154,13 @@
 					</div>
 					<div class="mt-3">
 						<label for="fPhone" class="form-label">Phone Number:</label>
-						<input id="fPhone" class="form-control invalid" type="number" placeholder="Phone No." minlength="9" tabindex=6 required/>
-						<!--div id="errorPhone" class="valid-feedback">Número de teléfono inválido!! Debe tener solo números</div-->
+						<input id="fPhone" class="form-control invalid" type="number" placeholder="Phone No." minlength="3" tabindex=6 required/>
+						<!--div id="errorPhone" class="valid-feedback">Este campo debe tener solo números</div-->
 						<div class="valid-feedback">
-							Perfecto
+							
 						</div>
 						<div class="invalid-feedback">	
-							Número de teléfono inválido!! Debe tener solo números	
+							Este campo debe tener solo números	
 						</div>
 					</div>
 				</div>

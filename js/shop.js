@@ -210,18 +210,19 @@ function printCart() {
             let p = "<tr>"
                 + "<th scope=\"row\">"+cart[i].name+"</th>"
                 + "<td align='right'>"+cart[i].price+" &euro;</td>"
-                + "<td align='center'>"+cart[i].quantity+"</td>"
-                //if((cart[i].subtotalWithDiscount)){
-                + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"           
-                + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
+                + "<td align='center'>"+cart[i].quantity+"</td>"  
+                        
+                + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"       
+              //  + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
                 
-                if(isNaN(cart[i].subtotalWithDiscount)){
-                    total += cart[i].subtotal;
-                    + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"   
+                if(cart[i].subtotalWithDiscount){
+                    alert("pasa");
+                   // total += cart[i].subtotal;
+                    + "<td align='right'>"+cart[i].subtotal+" xxx &euro;</td>"   
                 }
                 else {
-                    total += cart[i].subtotalWithDiscount;
-                    + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
+                   // total += cart[i].subtotalWithDiscount;
+                    + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"
                 }        
           
                 + "</tr>";

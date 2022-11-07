@@ -3,6 +3,7 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 
 function validar() {
+
 	var error = 0;
 	// Get the input fields
 	// crear variables de los inputs 
@@ -24,53 +25,67 @@ function validar() {
 	
 	let valNombre = document.getElementById("fName").value;
 	let valApellido = document.getElementById("fLastN").value;
-	let validaMail = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
-	let validaPass = /^(?=.*[0-9])(?=.*[a-z]).{3,8}/;
-	let validaPhone = /^[0-9]{3,}$/;
 
+	let validaMail = RegExp(/^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i);
+	let validaPass = RegExp(/^(?=.*[0-9])(?=.*[a-z]).{3,8}/);
+	let validaPhone = RegExp(/^[0-9]{3,}$/);
+
+	
 	// validación input nombre
 	if(valNombre == null || valNombre.length == 0 || /^\s+$/.test(valNombre)) {	
 	  	alert("primera validación");
 			fName.focus();
-		   errorName;
 			alert("mal");
-			fName.classList.add("is-valid");
+			errorName;
+			
 			fName.classList.remove("is-invalid");
+			fName.classList.add("is-valid");
+
+			return false;
 			
 	} else {
-		alert("bien");
+		//alert("bien nombre");
         fName.classList.add("is-invalid");
         fName.classList.remove("is-valid");
-		
-    }
 
+		return valNombre;
+	}
+
+}
 	// validación input apellido
 	if(valApellido == null || valApellido.length == 0 || /^\s+$/.test(valApellido)) {	
 		alert("primera validación");
 		fLastN.focus();
-		 errorName;
+		errorLastN;
 		  alert("mal");
 		  fLastN.classList.add("is-valid");
 		  fLastN.classList.remove("is-invalid");
+		  return false;
 		  
   } else {
 	  alert("bien");
 	  fLastN.classList.add("is-invalid");
 	  fLastN.classList.remove("is-valid");
+	  return fLastN;
 	  
   }
 
+
 	// validación input mail
+	let validaMail = RegExp(/^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i);
 	if (!validaMail.test(fEmail)){
-		error = 1;
+		//error = 1;
 		document.formulario_registro.fEmail.focus();
 		alert("mal");
 		fEmail.classList.add("is-valid");
 		fEmail.classList.remove("is-invalid");
+		return false;
+
 	}  else {
 		alert("bien");
 		fEmail.classList.add("is-invalid");
 		fEmail.classList.remove("is-valid");
+		return fEmail;
 	}
 
 	if(fEmail.value == ""){
@@ -79,11 +94,13 @@ function validar() {
 		alert("mal");
 		fEmail.classList.add("is-valid");
 		fEmail.classList.remove("is-invalid");
-		//error++;
+		return false;
+
 	} else{	
 		alert("bien");
 		fPhone.classList.add("is-invalid");
 		fPhone.classList.remove("is-valid");
+		return fEmail;
 	}
 
 	// validación input password
@@ -92,11 +109,12 @@ function validar() {
 		fPassword.classList.add("is-valid");
 		fPassword.classList.remove("is-invalid");
 		return false;
+
 	} else{
 		alert("bien");
 		fPassword.classList.add("is-invalid");
 		fPassword.classList.remove("is-valid");
-
+		return fPassword;
 	}
 
 	// validación input phone
@@ -109,27 +127,13 @@ function validar() {
 		alert("bien");
 		fPhone.classList.add("is-invalid");
 		fPhone.classList.remove("is-valid");
-
+		return fPhone;	
 	}
 
-}
 
 
 
 
-
- 
-	/*if(error>0){
-		alert("Error");
-	}else{
-		alert("OK");
-	}*/
-
-	/*if(fPhone.value == ""){
-		let valorTelefono = document.getElementById("campo").value;if( !(/^\d{10}$/.test(valor)) ) 
-		{ return false;}	
-		error++;
-	}*/
 
 
 
