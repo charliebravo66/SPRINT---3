@@ -202,31 +202,37 @@ function printCart() {
         document.getElementById('totalPrecio').innerHTML = "";
         //creamos variable lista vacía
         let lista = "";
-
+                  
         //hacemos un for para recorrer los productos del carrito de la compra
         for (i = 0; i < cart.length; i++) {
         
+            
         //variable con la creación dinámica de los datos del carrito (nombre, precio, cantidad, total...)
             let p = "<tr>"
                 + "<th scope=\"row\">"+cart[i].name+"</th>"
                 + "<td align='right'>"+cart[i].price+" &euro;</td>"
-                + "<td align='center'>"+cart[i].quantity+"</td>"  
-                        
-                + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"       
-              //  + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
+                + "<td align='center'>"+cart[i].quantity+"</td>" 
+                + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
+                + "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"    
                 
-                if(cart[i].subtotalWithDiscount){
-                    alert("pasa");
-                   // total += cart[i].subtotal;
-                    + "<td align='right'>"+cart[i].subtotal+" xxx &euro;</td>"   
-                }
-                else {
-                   // total += cart[i].subtotalWithDiscount;
-                    + "<td align='right'>"+cart[i].subtotalWithDiscount+" &euro;</td>"
-                }        
-          
-                + "</tr>";
                 
+                if(cart[i].name == 'cooking oil' && cart[i].quantity >= 3 || cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
+                {
+                    
+                 + "<td>"+ cart[i].subtotalWithDiscount + "</td>"                   
+                
+                // "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
+               
+                } else {
+                  + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
+                 
+                  }
+                  
+              + "</tr>";
+
+                                
+
+
             lista = lista + p;
         }
         
@@ -238,6 +244,7 @@ function printCart() {
             + "</tr>";
             
             precioFinal = precioFinal + t;
+         
         
         document.getElementById('totalPrecio').innerHTML = precioFinal;
 
