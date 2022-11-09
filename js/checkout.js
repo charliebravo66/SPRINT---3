@@ -73,31 +73,50 @@ function validar() {
 
 	// validación input mail
 	let validaMail = RegExp(/^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i);
+<<<<<<< HEAD
+	
+	if (!validaMail.test(fEmail)){
+		//error = 1;
+		document.formulario_registro.fEmail.focus();
+
+=======
 	if (!validaMail.test(fEmail)){
 		//error = 1;
 		document.formulario_registro.fEmail.focus();
 		alert("mal");
+>>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
 		fEmail.classList.add("is-valid");
 		fEmail.classList.remove("is-invalid");
 		return false;
 
 	}  else {
+<<<<<<< HEAD
+
+=======
 		alert("bien");
+>>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
 		fEmail.classList.add("is-invalid");
 		fEmail.classList.remove("is-valid");
 		return fEmail;
 	}
 
 	if(fEmail.value == ""){
-		alert("Falta rellenar Email");
+
 		fEmail.focus();
+<<<<<<< HEAD
+=======
 		alert("mal");
+>>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
 		fEmail.classList.add("is-valid");
 		fEmail.classList.remove("is-invalid");
 		return false;
 
 	} else{	
+<<<<<<< HEAD
+
+=======
 		alert("bien");
+>>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
 		fPhone.classList.add("is-invalid");
 		fPhone.classList.remove("is-valid");
 		return fEmail;
@@ -105,12 +124,22 @@ function validar() {
 
 	// validación input password
 	if(!validaPass.test(fPassword)){
+<<<<<<< HEAD
+
+=======
 		alert("El password no es correcto");
+>>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
 		fPassword.classList.add("is-valid");
 		fPassword.classList.remove("is-invalid");
 		return false;
 
 	} else{
+<<<<<<< HEAD
+
+		fPassword.classList.add("is-invalid");
+		fPassword.classList.remove("is-valid");
+		return fPassword;
+=======
 		alert("bien");
 		fPassword.classList.add("is-invalid");
 		fPassword.classList.remove("is-valid");
@@ -128,8 +157,23 @@ function validar() {
 		fPhone.classList.add("is-invalid");
 		fPhone.classList.remove("is-valid");
 		return fPhone;	
+>>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
 	}
 
+	// validación input phone
+	if(isNaN(fPhone) || !validaPhone.test(fPhone)) {
+
+		fPhone.classList.add("is-valid");
+		fPhone.classList.remove("is-invalid");
+		return false;
+	} else{
+		alert("bien");
+		fPhone.classList.add("is-invalid");
+		fPhone.classList.remove("is-valid");
+		return fPhone;	
+	}
+
+enviado();
 
 
 
@@ -138,6 +182,15 @@ function validar() {
 
 
 
+<<<<<<< HEAD
+/*limpiarForm(){
+	document.getElementById('formulario_registro').reset();
+}*/
+function enviado(){
+	alert("Formulario Completo enviado !!")
+	document.location.href="checkout.html";
+}
+=======
 
 /*limpiarForm(){
 	document.getElementById('formulario_registro').reset();
@@ -145,4 +198,5 @@ function validar() {
 /*function enviado(){
 	alert("Formulario Completo enviado !!")
 }*/
+>>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
 	
