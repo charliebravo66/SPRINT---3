@@ -219,7 +219,7 @@ function printCart() {
                 if(cart[i].name == 'cooking oil' && cart[i].quantity >= 3 || cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
                 {
                     
-                 + "<td>"+ cart[i].subtotalWithDiscount + "</td>"                   
+                  + "<td>"+ cart[i].subtotalWithDiscount + "</td>"                   
                 
                 // "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
                
@@ -240,7 +240,7 @@ function printCart() {
         
 
             let t = "<tr>"
-            + "<th scope=\"row\">"+cart.total+" &euro;</th>"
+            + "<th scope=\"row\"> TOTAL: "+cart.total+" &euro;</th>"
             + "</tr>";
             
             precioFinal = precioFinal + t;
