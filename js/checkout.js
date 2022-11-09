@@ -73,6 +73,7 @@ function validar() {
 
 	// validación input mail
 	let validaMail = RegExp(/^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i);
+<<<<<<< HEAD
 	
 	if (!validaMail.test(fEmail)){
 		//error = 1;
