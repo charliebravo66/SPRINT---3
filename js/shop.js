@@ -221,7 +221,7 @@ function printCart() {
                 {                
                   conDescuento;
                  "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
->>>>>>> 5bb94b79cca30fb3cd2a3d0fd05e7e0adf177f32
+
                
                 } else {
                   + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
