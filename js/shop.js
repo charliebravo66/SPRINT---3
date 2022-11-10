@@ -94,24 +94,23 @@ function buy(id) {
     //llamada función que calcula el total del Carrito
     calculateTotal();
 
-    }
-
-
-
+}
 
 // Exercise 2
 function cleanCart() {
     //alert("limpiar cesta");
  
     //limpiar cesta
+    cartList = [];
     cart = [];
+    cart.total = 0;
+    
     //función imprime cesta modal 
     printCart();
     //ponemos el contador de la cesta a 0
     document.getElementById('count_product').innerHTML = 0;
     //console.log(cart);
    
-
 }
 
 // Exercise 3
@@ -144,7 +143,7 @@ function generateCart() {
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
     //llamamos función limpiar carrito antes de generar 
 
-     cleanCart();
+    // cleanCart();
 
     //pasar del carlist al cart
     for(i=0;i<cartList.length;i++){
@@ -205,50 +204,26 @@ function printCart() {
                   
         //hacemos un for para recorrer los productos del carrito de la compra
         for (i = 0; i < cart.length; i++) {
-        
             
         //variable con la creación dinámica de los datos del carrito (nombre, precio, cantidad, total...)
             let p = "<tr>"
                 + "<th scope=\"row\">"+cart[i].name+"</th>"
                 + "<td align='right'>"+cart[i].price+" &euro;</td>"
                 + "<td align='center'>"+cart[i].quantity+"</td>" 
-                + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
-<<<<<<< HEAD
-                + "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"   
-                  
-                
-                if(cart[i].name == 'cooking oil' && cart[i].quantity >= 3 || cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
-                {
-                                  
-                
-                 "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
-=======
-                + "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"    
-                
-                
-                if(cart[i].name == 'cooking oil' && cart[i].quantity >= 3 || cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
-                {
-                    
-                  + "<td>"+ cart[i].subtotalWithDiscount + "</td>"                   
-                
-                // "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
->>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
-               
-                } else {
-                  + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
-                 
-                  }
-                  
-              + "</tr>";
+                + "<td align='right'>"+cart[i].subtotal+" &euro;</td>";
 
-                                
-
+            if(isNaN(cart[i].subtotalWithDiscount)){
+                p = p + "<td align='right'>"+cart[i].subtotal+"  &euro;</td>";   
+            }
+            else{
+                p = p + "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>";   
+            }
+            p = p + "</tr>";
 
             lista = lista + p;
         }
         
         let precioFinal = "";
-        
 
             let t = "<tr>"
             + "<th scope=\"row\"> TOTAL: "+cart.total+" &euro;</th>"
