@@ -202,7 +202,8 @@ function printCart() {
         document.getElementById('totalPrecio').innerHTML = "";
         //creamos variable lista vacía
         let lista = "";
-                  
+        
+   
         //hacemos un for para recorrer los productos del carrito de la compra
         for (i = 0; i < cart.length; i++) {
         
@@ -213,31 +214,19 @@ function printCart() {
                 + "<td align='right'>"+cart[i].price+" &euro;</td>"
                 + "<td align='center'>"+cart[i].quantity+"</td>" 
                 + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
-<<<<<<< HEAD
                 + "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"   
                   
                 
                 if(cart[i].name == 'cooking oil' && cart[i].quantity >= 3 || cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
-                {
-                                  
-                
+                {                
+                  conDescuento;
                  "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
-=======
-                + "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"    
-                
-                
-                if(cart[i].name == 'cooking oil' && cart[i].quantity >= 3 || cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
-                {
-                    
-                 + "<td>"+ cart[i].subtotalWithDiscount + "</td>"                   
-                
-                // "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
->>>>>>> 739198542c92279c75668746d4ce037e8897aa8d
                
                 } else {
                   + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
                  
                   }
+
                   
               + "</tr>";
 
