@@ -201,7 +201,8 @@ function printCart() {
         document.getElementById('totalPrecio').innerHTML = "";
         //creamos variable lista vacía
         let lista = "";
-                  
+        
+   
         //hacemos un for para recorrer los productos del carrito de la compra
         for (i = 0; i < cart.length; i++) {
             
