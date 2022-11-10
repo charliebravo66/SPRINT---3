@@ -221,6 +221,7 @@ function printCart() {
                 {                
                   conDescuento;
                  "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>"
+>>>>>>> 5bb94b79cca30fb3cd2a3d0fd05e7e0adf177f32
                
                 } else {
                   + "<td align='right'>"+cart[i].subtotal+" &euro;</td>"
@@ -240,7 +241,7 @@ function printCart() {
         
 
             let t = "<tr>"
-            + "<th scope=\"row\">"+cart.total+" &euro;</th>"
+            + "<th scope=\"row\"> TOTAL: "+cart.total+" &euro;</th>"
             + "</tr>";
             
             precioFinal = precioFinal + t;
