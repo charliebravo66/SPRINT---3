@@ -74,8 +74,12 @@ var total = 0;
 
 var subtotal = 0;
 
-// Exercise 1
+var total_price = 0;
 
+// ponemos el carrito a 0 para que no aparezca Undefined
+cart.total = 0;
+
+// Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // Hacemos un for para recorrer los productos
@@ -83,7 +87,7 @@ function buy(id) {
 
         if(id == products[i].id){
             //añadimos producto a la cartList    
-            cartList.push(products[i])
+            cartList.push(products[i]);
             
              //cartList.push(products[id]);
             console.log(cartList);
@@ -128,7 +132,6 @@ function calculateTotal() {
     }
     //redondeamos la cantidad total 
     total = total.toFixed(2);
-
     cart.total = total;
 
     // precio total cesta
@@ -142,7 +145,7 @@ function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
     //llamamos función limpiar carrito antes de generar 
-
+    cart = [];
     // cleanCart();
 
     //pasar del carlist al cart
@@ -174,10 +177,13 @@ function generateCart() {
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
+  
     for (i = 0; i < cart.length; i++) {
         if (cart[i].name == 'cooking oil' && cart[i].quantity >= 3)
             //promoción aceite si compra más de 3 botellas             
-            cart[i].subtotalWithDiscount = cart[i].quantity * 10;             
+            cart[i].subtotalWithDiscount = cart[i].quantity * 10;
+            
+                      
         else if (cart[i].name == 'Instant cupcake mixture' && cart[i].quantity >= 10)
             //con más de 10 productos para hacer pastel
             cart[i].subtotalWithDiscount = (cart[i].subtotal / 3) * 2; 
@@ -186,6 +192,7 @@ function applyPromotionsCart() {
         }
         cart[i].subtotal = cart[i].quantity * cart[i].price;
     }
+
 }
 
 
@@ -198,7 +205,8 @@ function printCart() {
 
         //vaciamos los datos iniciales del carrito
         document.getElementById('cart_list').innerHTML = "";
-        document.getElementById('totalPrecio').innerHTML = "";
+        //document.getElementById('totalPrecio').innerHTML = "";
+        document.getElementById('total_price').innerHTML = "";
         //creamos variable lista vacía
         let lista = "";
         
@@ -214,10 +222,10 @@ function printCart() {
                 + "<td align='right'>"+cart[i].subtotal+" &euro;</td>";
 
             if(isNaN(cart[i].subtotalWithDiscount)){
-                p = p + "<td align='right'>"+cart[i].subtotal+"  &euro;</td>";   
+                p = p + "<td align='right'><b>" +cart[i].subtotal+"  &euro;</b></td>";   
             }
             else{
-                p = p + "<td align='right'>"+cart[i].subtotalWithDiscount+"  &euro;</td>";   
+                p = p + "<td align='right' style='color:green'><b>" +cart[i].subtotalWithDiscount+"  &euro;</b></td>";   
             }
             p = p + "</tr>";
 
@@ -227,13 +235,13 @@ function printCart() {
         let precioFinal = "";
 
             let t = "<tr>"
-            + "<th scope=\"row\"> TOTAL: "+cart.total+" &euro;</th>"
+            + "<th scope=\"row\"><b>  "+cart.total+" &euro;</b></th>"
             + "</tr>";
             
             precioFinal = precioFinal + t;
          
         
-        document.getElementById('totalPrecio').innerHTML = precioFinal;
+        document.getElementById('total_price').innerHTML = precioFinal;
 
         document.getElementById('cart_list').innerHTML = lista;
         
