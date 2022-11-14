@@ -43,10 +43,11 @@ function validar() {
 	if(valNombre == null || valNombre.length == 0 || /^\s+$/.test(valNombre)) {	
 
 			fName.focus();	
+				
 			fName.classList.remove("is-valid");
 			fName.classList.add("is-invalid");	
-            //errorName.classList.remove("valid-feedback");
-            //errorName.classList.remove("invalid-feedback");
+            errorName.classList.remove("valid-feedback");
+            errorName.classList.remove("invalid-feedback");
 
 			//errorName;
 
@@ -268,9 +269,10 @@ function validar() {
 
 
 
-/*limpiarForm(){
+limpiarForm(){
+	alert("limpia");
 	document.getElementById('formulario_registro').reset();
-}*/
+}
 /*function enviado(){
 	alert("Formulario Completo enviado !!")
 	document.location.href="checkout_2.html";
